@@ -5,32 +5,35 @@
     "import/order": [
       "error",
       {
-        "groups": ["builtin", "external", "internal"],
+        "newlines-between": "always",
+        "groups": ["builtin", "external", "internal", "unknown"],
         "pathGroups": [
           {
-            "pattern": "next/**",
-            "group": "builtin"
+            "pattern": "react/**",
+            "group": "builtin",
+            "position": "before"
           },
           {
-            "pattern": "next",
-            "group": "builtin"
+            "pattern": "next/**",
+            "group": "builtin",
+            "position": "before"
           },
           {
             "pattern": "react",
             "group": "builtin"
           },
           {
-            "pattern": "react/**",
+            "pattern": "next",
             "group": "builtin"
           }
         ],
-
-        "newlines-between": "always",
+        "pathGroupsExcludedImportTypes": [],
         "alphabetize": {
-          "order": "desc",
+          "order": "asc",
           "caseInsensitive": true
         }
       }
-    ]
+    ],
+    "react-hooks/exhaustive-deps": "off"
   }
 }
