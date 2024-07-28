@@ -20,7 +20,7 @@ function NotFound() {
         <S.Title>404</S.Title>
         <S.EarthImage
           src="/icons/earth.svg"
-          width={325}
+          width={320}
           height={500}
           alt="지구 모양 아이콘"
         />

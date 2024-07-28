@@ -37,12 +37,13 @@ export const Title = styled.p`
 export const EarthImage = styled(Image)`
   position: absolute;
   left: 29%;
-  top: -4%;
+  top: -3.5%;
+  width: 20rem;
 
   @media ${MOBILE_MEDIA_QUERY} {
     left: 37.4%;
-    top: -6%;
-    width: 11.875rem;
+    top: -5%;
+    width: 11.5625rem;
   }
 `;
 
