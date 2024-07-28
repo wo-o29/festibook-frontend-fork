@@ -2,8 +2,10 @@ import type { AppProps } from "next/app";
 
 import { useState } from "react";
 
+import { Global } from "@emotion/react";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import "@/styles/global";
+
+import reset from "@/styles/reset";
 
 export default function App({ Component, pageProps }: AppProps) {
   const [queryClient] = useState(
@@ -22,6 +24,7 @@ export default function App({ Component, pageProps }: AppProps) {
 
   return (
     <QueryClientProvider client={queryClient}>
+      <Global styles={reset} />
       <Component {...pageProps} />
     </QueryClientProvider>
   );
