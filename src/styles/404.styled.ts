@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 
-import { styled } from "@linaria/react";
+import styled from "@emotion/styled/macro";
 
 export const Container = styled.div`
   width: 50rem;
