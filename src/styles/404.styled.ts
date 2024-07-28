@@ -2,6 +2,14 @@ import Image from "next/image";
 import Link from "next/link";
 
 import styled from "@emotion/styled";
+import Fireworks from "@fireworks-js/react";
+
+import { MOBILE_MEDIA_QUERY } from "./const";
+
+export const FireworksContainer = styled(Fireworks)`
+  width: 100vw;
+  height: 100vh;
+`;
 
 export const Container = styled.div`
   width: 50rem;
@@ -16,15 +24,26 @@ export const Title = styled.p`
   font-size: 18.5rem;
   font-weight: 800;
   color: #b6c6ff;
-  letter-spacing: 10px;
-  height: 300px;
+  letter-spacing: 0.8125rem;
+  height: 18.75rem;
   position: relative;
+
+  @media ${MOBILE_MEDIA_QUERY} {
+    font-size: 10rem;
+    height: 10rem;
+  }
 `;
 
 export const EarthImage = styled(Image)`
   position: absolute;
   left: 29.3%;
-  top: -3%;
+  top: -4%;
+
+  @media ${MOBILE_MEDIA_QUERY} {
+    left: 37.4%;
+    top: -6%;
+    width: 11.875rem;
+  }
 `;
 
 export const Text = styled.p`
@@ -32,6 +51,11 @@ export const Text = styled.p`
   color: #2c2c2c;
   font-weight: 800;
   margin-bottom: 1.5rem;
+
+  @media ${MOBILE_MEDIA_QUERY} {
+    font-size: 1.75rem;
+    margin-bottom: 1rem;
+  }
 `;
 
 export const Box = styled.div`
@@ -46,14 +70,20 @@ export const Button = styled(Link)`
   justify-content: center;
   align-items: center;
   border-radius: 0.75rem;
-  background-color: #d3ddff;
-  font-size: 1.2rem;
+  background-color: #c5d1fa;
+  font-size: 1.3rem;
   font-weight: 700;
   letter-spacing: 0.0625rem;
-  transition: all 0.7s;
 
   &:hover {
     background-color: #85a0ff;
     color: #fff;
+    transition: 0.7s;
+  }
+
+  @media ${MOBILE_MEDIA_QUERY} {
+    height: 3.5rem;
+    padding: 0.25rem 3rem;
+    font-size: 1.2rem;
   }
 `;

@@ -4,7 +4,7 @@ import * as S from "../styles/404.styled";
 
 function NotFound() {
   return (
-    <Fireworks
+    <S.FireworksContainer
       autostart={true}
       options={{
         particles: 200, // 입자의 수
@@ -20,7 +20,7 @@ function NotFound() {
         <S.Title>404</S.Title>
         <S.EarthImage
           src="/icons/earth.svg"
-          width={320}
+          width={325}
           height={500}
           alt="지구 모양 아이콘"
         />
@@ -29,7 +29,7 @@ function NotFound() {
           <S.Button href="/">메인으로 돌아가기</S.Button>
         </S.Box>
       </S.Container>
-    </Fireworks>
+    </S.FireworksContainer>
   );
 }
 
