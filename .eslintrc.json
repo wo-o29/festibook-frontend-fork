@@ -1,12 +1,23 @@
 {
-  "plugins": ["import"],
-  "extends": ["next/core-web-vitals", "plugin:prettier/recommended"],
+  "plugins": [
+    "import"
+  ],
+  "extends": [
+    "next/core-web-vitals",
+    "plugin:prettier/recommended",
+    "plugin:storybook/recommended"
+  ],
   "rules": {
     "import/order": [
       "error",
       {
         "newlines-between": "always",
-        "groups": ["builtin", "external", "internal", "unknown"],
+        "groups": [
+          "builtin",
+          "external",
+          "internal",
+          "unknown"
+        ],
         "pathGroups": [
           {
             "pattern": "react/**",
