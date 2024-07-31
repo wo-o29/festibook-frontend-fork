@@ -20,12 +20,9 @@ jobs:
       pull-requests: write # PR에 라벨을 추가할 수 있는 권한
 
     steps:
-      - name: Enable Debugging
-        run: echo "##[debug]Debugging enabled"
-
       - name: Run Issue PR Labeler
         uses: hoho4190/issue-pr-labeler@v2.0.0
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-          disable-bot: true
+          disable-bot: false
           config-file-name: labeler-config.yml
