@@ -20,16 +20,8 @@ jobs:
       pull-requests: write # required to add labels to pull requests
 
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
-
       - name: Print GitHub Context
-        run: |
-          echo '${{ toJson(github) }}' > github_context.json
-          cat github_context.json
-
-      - name: Print Environment Variables
-        run: env
+        run: echo '${{ toJson(github) }}'
 
       - name: Run Issue PR Labeler
         uses: hoho4190/issue-pr-labeler@v2.0.0
