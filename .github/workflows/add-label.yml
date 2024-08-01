@@ -27,5 +27,7 @@ jobs:
         uses: hoho4190/issue-pr-labeler@v2.0.0
         with:
           token: ${{ secrets.GH_TOKEN }}
-          # disable-bot: true
-          # config-file-name: .github/labeler-config.yml
+          disable-bot: true
+          config-file-name: .github/labeler-config.yml
+        env:
+          DEBUG: true
