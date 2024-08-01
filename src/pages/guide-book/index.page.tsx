@@ -1,13 +1,24 @@
+import { dehydrate, QueryClient } from "@tanstack/react-query";
+
+import { getGuideBookData } from "@/apis/api";
+import { GUIDE_BOOK_KEYS } from "@/constants/queryKey";
 import { useGetGuideBookData } from "@/hooks/useGetGuideBookData";
 
 export const getServerSideProps = async () => {
+  const queryClient = new QueryClient();
+
   try {
+    await queryClient.prefetchQuery({
+      queryKey: GUIDE_BOOK_KEYS.lists(),
+      queryFn: () => getGuideBookData(1),
+    });
+
     return {
-      props: {},
+      props: { dehydrateState: dehydrate(queryClient) },
     };
   } catch (error) {
     return {
-      props: {},
+      props: { dehydrateState: null },
     };
   }
 };
