@@ -25,7 +25,8 @@ jobs:
 
       - name: Print GitHub Context
         run: |
-          echo "Context: ${{ toJson(github) }}"
+          echo '${{ toJson(github) }}' > github_context.json
+          cat github_context.json
 
       - name: Print Environment Variables
         run: env
