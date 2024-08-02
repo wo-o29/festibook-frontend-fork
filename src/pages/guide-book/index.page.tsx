@@ -4,6 +4,8 @@ import { getGuideBookData } from "@/apis/api";
 import { GUIDE_BOOK_KEYS } from "@/constants/queryKey";
 import { useGetGuideBookData } from "@/hooks/useGetGuideBookData";
 
+import * as S from "./styled";
+
 export const getServerSideProps = async () => {
   const queryClient = new QueryClient();
 
@@ -24,21 +26,16 @@ export const getServerSideProps = async () => {
 };
 
 function GuideBookPage() {
-  const { fetchNextPage, hasNextPage, isLoading, data } = useGetGuideBookData();
-  //   return <h1>여행 가이드북</h1>
-  //   console.log(data);
+  const { fetchNextPage, hasNextPage, guideBookList } = useGetGuideBookData();
 
-  //   console.log(hasNextPage);
+  if (!guideBookList) {
+    return null;
+  }
 
   return (
-    <div>
-      <button
-        onClick={() => fetchNextPage()}
-        disabled={!hasNextPage || isLoading}
-      >
-        {isLoading ? "Loading..." : "Load More"}
-      </button>
-    </div>
+    <>
+      <S.Title>여행 가이드북</S.Title>
+    </>
   );
 }
 

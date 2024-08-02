@@ -21,5 +21,11 @@ export const useGetGuideBookData = () => {
       },
     });
 
-  return { data, fetchNextPage, hasNextPage, isLoading, isError };
+  return {
+    guideBookList: data?.pages,
+    fetchNextPage,
+    hasNextPage,
+    isLoading,
+    isError,
+  };
 };
