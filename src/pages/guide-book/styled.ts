@@ -1,6 +1,6 @@
 import styled from "@emotion/styled";
 
-import { TABLET_MEDIA_QUERY, MOBILE_MEDIA_QUERY } from "@/styles/const";
+import { TABLET_MEDIA_QUERY } from "@/styles/const";
 
 export const Container = styled.main`
   max-width: 120rem;
@@ -45,10 +45,14 @@ export const ListBox = styled.ul`
   gap: 1rem;
   grid-template-columns: repeat(4, 1fr);
   place-items: center;
-  margin-top: 1rem;
-  border: 1px solid red;
+  margin: 1rem 0 3rem;
 
   @media ${TABLET_MEDIA_QUERY} {
     grid-template-columns: repeat(2, 1fr);
   }
+`;
+
+export const Observer = styled.div`
+  width: 100%;
+  height: 2rem;
 `;
