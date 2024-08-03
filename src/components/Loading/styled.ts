@@ -47,6 +47,7 @@ export const Title = styled.p`
 
 export const TitleEffect = styled.span`
   color: transparent;
+  -webkit-text-stroke: 0.001px #000;
 `;
 
 export const Text = styled.p`
@@ -62,6 +63,7 @@ export const Text = styled.p`
 export const TextEffect = styled.span`
   letter-spacing: 0.0625rem;
   color: transparent;
+  -webkit-text-stroke: 0.001px #000;
 `;
 
 export const Spinner = styled.div`
