@@ -31,7 +31,7 @@ function GuideBookPage() {
   const { hasNextPage, guideBookList, isLoading, isFetching, observerRef } =
     useGetGuideBookData();
 
-  if (!isLoading) {
+  if (isLoading) {
     return <Loading />;
   }
 
@@ -41,10 +41,10 @@ function GuideBookPage() {
         <S.Title>여행 가이드북</S.Title>
         <S.Line />
       </S.TitleBox>
-      <S.CountBox>{`총 ${guideBookList?.[0].totalCount}건`}</S.CountBox>
+      <S.CountBox>{`총 ${guideBookList ? guideBookList[0].totalCount : 0}건`}</S.CountBox>
       {guideBookList && guideBookList.length > 0 ? (
         <S.ListBox>
-          {guideBookList?.map((list) =>
+          {guideBookList.map((list) =>
             list.data.map((data) => (
               <GuideBookItem key={data.제목} data={data} />
             )),
