@@ -1,8 +1,7 @@
-import Image from "next/image";
-
 import { dehydrate, QueryClient } from "@tanstack/react-query";
 
 import { getGuideBookData } from "@/apis/api";
+import Loading from "@/components/Loading";
 import { GUIDE_BOOK_KEYS } from "@/constants/queryKey";
 import { useGetGuideBookData } from "@/hooks/useGetGuideBookData";
 
@@ -32,8 +31,8 @@ function GuideBookPage() {
   const { hasNextPage, guideBookList, isLoading, isFetching, observerRef } =
     useGetGuideBookData();
 
-  if (!guideBookList) {
-    return <div>Loading...</div>;
+  if (!isLoading) {
+    return <Loading />;
   }
 
   return (
@@ -43,7 +42,7 @@ function GuideBookPage() {
         <S.Line />
       </S.TitleBox>
       <S.CountBox>{`총 ${guideBookList?.[0].totalCount}건`}</S.CountBox>
-      {guideBookList.length < 0 ? (
+      {guideBookList && guideBookList.length > 0 ? (
         <S.ListBox>
           {guideBookList?.map((list) =>
             list.data.map((data) => (
