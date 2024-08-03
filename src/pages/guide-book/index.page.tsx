@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 import { dehydrate, QueryClient } from "@tanstack/react-query";
 
 import { getGuideBookData } from "@/apis/api";
@@ -30,7 +32,7 @@ function GuideBookPage() {
   const { hasNextPage, guideBookList, isLoading, isFetching, observerRef } =
     useGetGuideBookData();
 
-  if (isLoading) {
+  if (!guideBookList) {
     return <div>Loading...</div>;
   }
 
@@ -41,14 +43,26 @@ function GuideBookPage() {
         <S.Line />
       </S.TitleBox>
       <S.CountBox>{`총 ${guideBookList?.[0].totalCount}건`}</S.CountBox>
-      <S.ListBox>
-        {guideBookList?.map((list) =>
-          list.data.map((data) => (
-            <GuideBookItem key={data.제목} data={data} />
-          )),
-        )}
-        {hasNextPage && !isFetching && <S.Observer ref={observerRef} />}
-      </S.ListBox>
+      {guideBookList.length < 0 ? (
+        <S.ListBox>
+          {guideBookList?.map((list) =>
+            list.data.map((data) => (
+              <GuideBookItem key={data.제목} data={data} />
+            )),
+          )}
+          {hasNextPage && !isFetching && <S.Observer ref={observerRef} />}
+        </S.ListBox>
+      ) : (
+        <S.EmptyBox>
+          <S.LogoImage
+            src="/icons/logo.svg"
+            width={400}
+            height={400}
+            alt="로고 이미지"
+          />
+          가이드북 데이터가 없습니다.
+        </S.EmptyBox>
+      )}
     </S.Container>
   );
 }

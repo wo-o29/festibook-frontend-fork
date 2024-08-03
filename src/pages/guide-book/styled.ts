@@ -1,6 +1,8 @@
+import Image from "next/image";
+
 import styled from "@emotion/styled";
 
-import { TABLET_MEDIA_QUERY } from "@/styles/const";
+import { TABLET_MEDIA_QUERY, MOBILE_MEDIA_QUERY } from "@/styles/const";
 
 export const Container = styled.main`
   max-width: 120rem;
@@ -55,4 +57,29 @@ export const ListBox = styled.ul`
 export const Observer = styled.div`
   width: 100%;
   height: 2rem;
+`;
+
+export const EmptyBox = styled.div`
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.25rem;
+  font-weight: 800;
+  gap: 1rem;
+  padding-top: 1rem;
+
+  @media ${TABLET_MEDIA_QUERY} {
+    font-size: 1.75rem;
+  }
+`;
+
+export const LogoImage = styled(Image)`
+  width: 28rem;
+
+  @media ${TABLET_MEDIA_QUERY} {
+    width: 21rem;
+  }
 `;
