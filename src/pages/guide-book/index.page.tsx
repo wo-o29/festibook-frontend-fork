@@ -31,7 +31,7 @@ function GuideBookPage() {
   const { hasNextPage, guideBookList, isLoading, isFetching, observerRef } =
     useGetGuideBookData();
 
-  if (!isLoading) {
+  if (isLoading) {
     return <Loading />;
   }
 
