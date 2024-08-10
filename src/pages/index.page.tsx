@@ -12,7 +12,7 @@ export default function Home() {
   return (
     <>
       <button type="button" onClick={() => open(MODAL_TITLE.LOGIN)}>
-        모달 버튼
+        로그인 버튼
       </button>
       <Link href="/">초기 설정 ㅇ_ㅇ</Link>
       {modalState[MODAL_TITLE.LOGIN].isOpen && (
