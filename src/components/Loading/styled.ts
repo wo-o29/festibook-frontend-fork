@@ -47,7 +47,7 @@ export const Title = styled.p`
 
 export const TitleEffect = styled.span`
   color: transparent;
-  -webkit-text-stroke: 0.001px #000;
+  -webkit-text-stroke: 0.001px #efefef;
 `;
 
 export const Text = styled.p`
@@ -63,14 +63,14 @@ export const Text = styled.p`
 export const TextEffect = styled.span`
   letter-spacing: 0.0625rem;
   color: transparent;
-  -webkit-text-stroke: 0.001px #000;
+  -webkit-text-stroke: 0.001px #efefef;
 `;
 
 export const Spinner = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  border: 14px solid #f3f3f3;
+  border: 14px solid #e8e8e8;
   border-top: 14px solid #ab88af;
   border-radius: 50%;
   width: 6.25rem;
