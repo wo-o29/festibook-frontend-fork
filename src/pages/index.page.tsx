@@ -17,7 +17,7 @@ export default function Home() {
       <Link href="/">초기 설정 ㅇ_ㅇ</Link>
       {modalState[MODAL_TITLE.LOGIN].isOpen && (
         <Modal
-          key={MODAL_TITLE.LOGIN}
+          title={MODAL_TITLE.LOGIN}
           currentState={modalState[MODAL_TITLE.LOGIN]}
           onClose={() => {
             close(MODAL_TITLE.LOGIN);
