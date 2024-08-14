@@ -7,7 +7,7 @@ export const Box = styled.div`
   align-items: center;
   justify-content: center;
   padding-top: 1rem;
-  width: 25rem;
+  width: 24rem;
   margin: 0 auto;
 `;
 
@@ -23,9 +23,11 @@ export const SocialBox = styled.div`
 `;
 
 export const SocialButton = styled.button`
-  height: 52px;
-  border-radius: 4px;
-  border: 1px solid #dddddd;
+  border-radius: 12px;
+  height: 4.5rem;
+  overflow: hidden;
+  border: 1px solid #e8e8e8;
+  padding: 0.3125rem;
 
   &:hover {
     transform: scale(1.1);

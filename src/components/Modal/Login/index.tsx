@@ -18,24 +18,24 @@ function LoginModal() {
         <S.SocialButton type="button">
           <Image
             src="/icons/google.svg"
-            width={65}
-            height={65}
+            width={60}
+            height={60}
             alt="구글 로그인"
           />
         </S.SocialButton>
         <S.SocialButton type="button">
           <Image
             src="/icons/kakao.svg"
-            width={65}
-            height={65}
+            width={60}
+            height={60}
             alt="카카오 로그인"
           />
         </S.SocialButton>
         <S.SocialButton type="button">
           <Image
             src="/icons/naver.svg"
-            width={65}
-            height={65}
+            width={60}
+            height={60}
             alt="네이버 로그인"
           />
         </S.SocialButton>
