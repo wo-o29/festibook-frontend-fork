@@ -1,6 +1,7 @@
 import type { AppProps } from "next/app";
+import { NextPage } from "next/types";
 
-import { useState } from "react";
+import { ReactElement, ReactNode, useState } from "react";
 
 import { Global } from "@emotion/react";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
@@ -8,7 +9,15 @@ import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 
 import reset from "@/styles/reset";
 
-export default function App({ Component, pageProps }: AppProps) {
+export type NextPageWithLayout<P = {}, IP = P> = NextPage<P, IP> & {
+  getLayout?: (page: ReactElement) => ReactNode;
+};
+
+interface AppPropsWithLayout extends AppProps {
+  Component: NextPageWithLayout; // components 속성이 NextPageWithLayout 타입을 따르도록 변경
+}
+
+export default function App({ Component, pageProps }: AppPropsWithLayout) {
   const [queryClient] = useState(
     () =>
       new QueryClient({
@@ -23,11 +32,14 @@ export default function App({ Component, pageProps }: AppProps) {
       }),
   );
 
+  const getLayout = Component.getLayout ?? ((page) => page);
+
   return (
     <QueryClientProvider client={queryClient}>
       <Global styles={reset} />
       <Component {...pageProps} />
       <ReactQueryDevtools initialIsOpen={false} />
+      {getLayout(<Component {...pageProps} />)}
     </QueryClientProvider>
   );
 }
