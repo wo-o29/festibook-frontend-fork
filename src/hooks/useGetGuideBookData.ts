@@ -23,7 +23,7 @@ export const useGetGuideBookData = () => {
       },
     });
 
-  const observerRef = useRef<any>(null);
+  const observerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
