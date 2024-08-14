@@ -27,7 +27,7 @@ export const Wrap = styled.div<{ isClose: boolean }>`
   background-color: #fff;
   border-radius: 12px;
   width: 34.375rem;
-  height: 31.25rem;
+  height: 29.6875rem;
   padding: 1.5rem 1.25rem;
   border: 1px solid #efefef;
   animation: ${({ isClose }) => (isClose ? closeEffect : openEffect)} 0.25s
