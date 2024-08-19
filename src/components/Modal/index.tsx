@@ -12,14 +12,14 @@ const MODAL_RENDER: Record<keyof typeof MODAL_TITLE, JSX.Element> = {
 
 interface ModalProps {
   title: keyof typeof MODAL_TITLE;
-  currentState: { isOpen: boolean; close: boolean };
+  isOpen: boolean;
   onClose: () => void;
 }
 
-function Modal({ title, currentState, onClose }: ModalProps) {
+function Modal({ title, isOpen, onClose }: ModalProps) {
   return (
     <Portal>
-      <S.Wrap isClose={currentState.close}>
+      <S.Wrap isOpen={isOpen}>
         <S.ButtonBox>
           <S.CloseButton type="button" onClick={onClose}>
             <Image

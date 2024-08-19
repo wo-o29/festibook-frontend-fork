@@ -19,7 +19,7 @@ const closeEffect = keyframes`
   }
 `;
 
-export const Wrap = styled.div<{ isClose: boolean }>`
+export const Wrap = styled.div<{ isOpen: boolean }>`
   position: absolute;
   top: 50%;
   left: 50%;
@@ -30,8 +30,7 @@ export const Wrap = styled.div<{ isClose: boolean }>`
   height: 29.6875rem;
   padding: 1.5rem 1.25rem;
   border: 1px solid #efefef;
-  animation: ${({ isClose }) => (isClose ? closeEffect : openEffect)} 0.25s
-    ease-in-out;
+  animation: ${({ isOpen }) => (isOpen ? openEffect : closeEffect)} 0.25s ease;
 `;
 
 export const ButtonBox = styled.div`
