@@ -1,22 +1,17 @@
 import Image from "next/image";
 
-import { MODAL_TITLE } from "@/constants/modal";
+import { ReactNode } from "react";
 
-import LoginModal from "./Login";
 import * as S from "./styled";
 import Portal from "../Portal";
 
-const MODAL_RENDER: Record<keyof typeof MODAL_TITLE, JSX.Element> = {
-  [MODAL_TITLE.LOGIN]: <LoginModal />,
-};
-
-interface ModalProps {
-  title: keyof typeof MODAL_TITLE;
+export interface ModalProps {
+  children: ReactNode;
   isOpen: boolean;
   onClose: () => void;
 }
 
-function Modal({ title, isOpen, onClose }: ModalProps) {
+function Modal({ children, isOpen, onClose }: ModalProps) {
   return (
     <Portal>
       <S.Container isOpen={isOpen}>
@@ -31,7 +26,7 @@ function Modal({ title, isOpen, onClose }: ModalProps) {
               />
             </S.CloseButton>
           </S.ButtonBox>
-          {MODAL_RENDER[title]}
+          {children}
         </S.Wrap>
       </S.Container>
     </Portal>

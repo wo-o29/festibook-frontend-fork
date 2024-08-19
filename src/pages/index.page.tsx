@@ -2,8 +2,7 @@ import Link from "next/link";
 
 import { overlay } from "overlay-kit";
 
-import Modal from "@/components/Modal";
-import { MODAL_TITLE } from "@/constants/modal";
+import LoginModal from "@/components/Modal/Login";
 
 export default function Home() {
   return (
@@ -13,8 +12,7 @@ export default function Home() {
         onClick={() => {
           overlay.open(({ isOpen, close, unmount }) => {
             return (
-              <Modal
-                title={MODAL_TITLE.LOGIN}
+              <LoginModal
                 isOpen={isOpen}
                 onClose={() => {
                   close();
