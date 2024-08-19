@@ -4,6 +4,7 @@ import { useState } from "react";
 
 import { Global } from "@emotion/react";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { OverlayProvider } from "overlay-kit";
 
 import reset from "@/styles/reset";
 
@@ -24,8 +25,10 @@ export default function App({ Component, pageProps }: AppProps) {
 
   return (
     <QueryClientProvider client={queryClient}>
-      <Global styles={reset} />
-      <Component {...pageProps} />
+      <OverlayProvider>
+        <Global styles={reset} />
+        <Component {...pageProps} />
+      </OverlayProvider>
     </QueryClientProvider>
   );
 }
