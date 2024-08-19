@@ -12,7 +12,7 @@ function LoginModal({ isOpen, onClose }: Omit<ModalProps, "children">) {
       <S.Box>
         <Image
           src="/icons/logo.svg"
-          width={300}
+          width={330}
           height={150}
           alt="페스티북 로고"
         />

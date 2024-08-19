@@ -3,7 +3,7 @@ import styled from "@emotion/styled";
 export const Box = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 2.75rem;
+  gap: 2.25rem;
   align-items: center;
   justify-content: center;
   padding-top: 1rem;
@@ -12,7 +12,7 @@ export const Box = styled.div`
 `;
 
 export const Title = styled.h2`
-  font-size: 1.5rem;
+  font-size: 1.6rem;
   font-weight: 800;
 `;
 
@@ -30,7 +30,7 @@ export const SocialButton = styled.button`
   padding: 0.3125rem;
 
   &:hover {
-    transform: scale(1.1);
+    transform: scale(1.05);
     transition: 0.75s;
   }
 `;
