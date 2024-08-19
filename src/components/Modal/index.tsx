@@ -19,19 +19,21 @@ interface ModalProps {
 function Modal({ title, isOpen, onClose }: ModalProps) {
   return (
     <Portal>
-      <S.Wrap isOpen={isOpen}>
-        <S.ButtonBox>
-          <S.CloseButton type="button" onClick={onClose}>
-            <Image
-              src="./icons/close.svg"
-              width={30}
-              height={30}
-              alt="모달 닫기"
-            />
-          </S.CloseButton>
-        </S.ButtonBox>
-        {MODAL_RENDER[title]}
-      </S.Wrap>
+      <S.Container isOpen={isOpen}>
+        <S.Wrap>
+          <S.ButtonBox>
+            <S.CloseButton type="button" onClick={onClose}>
+              <Image
+                src="./icons/close.svg"
+                width={30}
+                height={30}
+                alt="모달 닫기"
+              />
+            </S.CloseButton>
+          </S.ButtonBox>
+          {MODAL_RENDER[title]}
+        </S.Wrap>
+      </S.Container>
     </Portal>
   );
 }
