@@ -1,6 +1,6 @@
-import * as S from "../styles/404.styled";
+import * as S from "./styled";
 
-function NotFound() {
+function Loading() {
   return (
     <S.FireworksContainer
       autostart={true}
@@ -14,20 +14,16 @@ function NotFound() {
       }}
     >
       <S.Container>
-        <S.Title>404</S.Title>
-        <S.EarthImage
-          src="/icons/earth.svg"
-          width={320}
-          height={500}
-          alt="지구 모양 아이콘"
-        />
-        <S.Text>존재하지 않는 페이지입니다.</S.Text>
-        <S.Box>
-          <S.Button href="/">메인으로 돌아가기</S.Button>
-        </S.Box>
+        <S.Title>
+          <S.TitleEffect>FestiBook</S.TitleEffect>
+        </S.Title>
+        <S.Text>
+          <S.TextEffect>데이터를 불러오는 중입니다...</S.TextEffect>
+        </S.Text>
+        <S.Spinner />
       </S.Container>
     </S.FireworksContainer>
   );
 }
 
-export default NotFound;
+export default Loading;
