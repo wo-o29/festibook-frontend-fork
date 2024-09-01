@@ -1,4 +1,4 @@
-import MyPageReviewItem from "./Item";
+import ReviewItem from "./ReviewItem";
 import * as S from "./styled";
 
 const data = [
@@ -22,11 +22,11 @@ const data = [
   },
 ];
 
-function MyPageReviewList() {
+function ReviewList() {
   return (
     <S.List>
       {data.map((item) => (
-        <MyPageReviewItem
+        <ReviewItem
           key={item.id}
           review={item.review}
           title={item.title}
@@ -37,4 +37,4 @@ function MyPageReviewList() {
   );
 }
 
-export default MyPageReviewList;
+export default ReviewList;

@@ -6,11 +6,7 @@ interface MyPageReviewItemProps {
   reviewDate: string;
 }
 
-function MyPageReviewItem({
-  review,
-  title,
-  reviewDate,
-}: MyPageReviewItemProps) {
+function ReviewItem({ review, title, reviewDate }: MyPageReviewItemProps) {
   return (
     <S.Item>
       <S.Title>{review}</S.Title>
@@ -22,4 +18,4 @@ function MyPageReviewItem({
   );
 }
 
-export default MyPageReviewItem;
+export default ReviewItem;
