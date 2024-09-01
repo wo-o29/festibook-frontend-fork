@@ -37,7 +37,6 @@ export default function App({ Component, pageProps }: AppPropsWithLayout) {
   return (
     <QueryClientProvider client={queryClient}>
       <Global styles={reset} />
-      <Component {...pageProps} />
       <ReactQueryDevtools initialIsOpen={false} />
       {getLayout(<Component {...pageProps} />)}
     </QueryClientProvider>
