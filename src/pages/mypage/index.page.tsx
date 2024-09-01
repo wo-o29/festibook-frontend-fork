@@ -2,10 +2,10 @@ import { ReactElement } from "react";
 
 import HeaderLayout from "@/components/Layout/HeaderLayout";
 
-import Bookmark from "./Components/Bookmark";
-import Planner from "./Components/Planner";
-import Profile from "./Components/Profile";
-import Review from "./Components/Review";
+import Bookmark from "./components/Bookmark";
+import Planner from "./components/Planner";
+import Profile from "./components/Profile";
+import Review from "./components/Review";
 import * as S from "./styled";
 
 function MyPage() {

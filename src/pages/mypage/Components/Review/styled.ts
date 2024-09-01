@@ -1,5 +1,7 @@
 import styled from "@emotion/styled";
 
+import { MOBILE_MEDIA_QUERY } from "@/styles/const";
+
 export const Section = styled.section`
   border-radius: 16px;
   border: 1px solid #8c8c8c;
