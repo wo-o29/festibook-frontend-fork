@@ -4,6 +4,7 @@ import { MOBILE_MEDIA_QUERY } from "@/styles/const";
 
 export const Box = styled.div`
   position: relative;
+  height: 1.25rem;
 
   &:hover > div {
     visibility: visible;
@@ -16,9 +17,8 @@ export const Tooltip = styled.div`
   visibility: hidden;
   opacity: 0;
   position: absolute;
-  top: -150%;
+  top: -190%;
   left: -100%;
-
   background-color: #fff;
   border: 1px solid #8c8c8c;
   border-radius: 4px;
