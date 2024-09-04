@@ -13,16 +13,9 @@ function FestivalGrid() {
   return (
     <S.Grid>
       {festivalData.map((festival) => {
-        const {
-          id,
-          title,
-          region,
-          startDate,
-          endDate,
-          imageUrl,
-          isHolding,
-          isBookmarked,
-        } = festival;
+        const { id, title, region, startDate, endDate, imageUrl, isHolding } =
+          festival;
+
         return (
           <FestivalCard
             key={id}
@@ -32,7 +25,6 @@ function FestivalGrid() {
             endDate={endDate}
             imageUrl={imageUrl}
             isHolding={isHolding}
-            isBookmarked={isBookmarked}
             hasKebab
           />
         );

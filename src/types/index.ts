@@ -23,7 +23,6 @@ export interface BookmarkFestivalType {
   endDate: string;
   imageUrl: string;
   isHolding: boolean;
-  isBookmarked: boolean;
 }
 
 export interface BookmarkReviewType {

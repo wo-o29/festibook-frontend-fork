@@ -16,7 +16,6 @@ function FestivalCard({
   endDate,
   imageUrl,
   isHolding,
-  isBookmarked,
   hasKebab,
 }: FestivalCardProps) {
   const { isOpen, toggle, ref: buttonRef } = useDropdown<HTMLButtonElement>();
