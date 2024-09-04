@@ -28,7 +28,6 @@ export const getBookmarkFestival = async (): Promise<
 };
 
 export const getMyPageReview = async (): Promise<BookmarkReviewType[]> => {
-  console.log("Asx");
   const response = await axios.get("/mypage/review");
   return response.data;
 };
