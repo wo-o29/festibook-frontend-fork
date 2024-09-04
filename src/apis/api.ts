@@ -6,7 +6,7 @@ import {
   GuideBookType,
 } from "@/types";
 
-import { setInstance } from "./axios";
+import { instance, setInstance } from "./axios";
 
 export const getGuideBookData = async (
   pageParam: number,
@@ -23,10 +23,12 @@ export const getBookmarkFestival = async (): Promise<
   BookmarkFestivalType[]
 > => {
   const response = await axios.get("/bookmark/festival");
+
   return response.data;
 };
 
-export const getBookmarkReview = async (): Promise<BookmarkReviewType[]> => {
-  const response = await axios.get("/bookmark/review");
+export const getMyPageReview = async (): Promise<BookmarkReviewType[]> => {
+  console.log("Asx");
+  const response = await axios.get("/mypage/review");
   return response.data;
 };

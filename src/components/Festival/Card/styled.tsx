@@ -62,7 +62,7 @@ export const DropdownItem = styled.li`
   letter-spacing: 0.0469rem;
 
   &:hover {
-    background-color: #ffdede;
+    background-color: #efefef;
     transition: 0.5s;
   }
 `;

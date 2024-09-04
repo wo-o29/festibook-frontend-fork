@@ -10,7 +10,7 @@ export const handlers = [
   }),
 
   // 축제 리뷰
-  http.get("/bookmark/review", () => {
+  http.get("/mypage/review", () => {
     return HttpResponse.json(bookmarkReviewData);
   }),
 ];

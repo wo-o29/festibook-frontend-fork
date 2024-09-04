@@ -7,7 +7,7 @@ import { Global } from "@emotion/react";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 
-import { initMSW } from "@/mocks";
+import WrapMSW from "@/mocks/WrapMSW";
 import reset from "@/styles/reset";
 
 export type NextPageWithLayout<P = {}, IP = P> = NextPage<P, IP> & {
@@ -16,10 +16,6 @@ export type NextPageWithLayout<P = {}, IP = P> = NextPage<P, IP> & {
 
 interface AppPropsWithLayout extends AppProps {
   Component: NextPageWithLayout; // components 속성이 NextPageWithLayout 타입을 따르도록 변경
-}
-
-if (process.env.NODE_ENV !== "production") {
-  initMSW();
 }
 
 export default function App({ Component, pageProps }: AppPropsWithLayout) {
@@ -37,10 +33,12 @@ export default function App({ Component, pageProps }: AppPropsWithLayout) {
   const getLayout = Component.getLayout ?? ((page) => page);
 
   return (
-    <QueryClientProvider client={queryClient}>
-      <Global styles={reset} />
-      <ReactQueryDevtools initialIsOpen={false} />
-      {getLayout(<Component {...pageProps} />)}
-    </QueryClientProvider>
+    <WrapMSW>
+      <QueryClientProvider client={queryClient}>
+        <Global styles={reset} />
+        <ReactQueryDevtools initialIsOpen={false} />
+        {getLayout(<Component {...pageProps} />)}
+      </QueryClientProvider>
+    </WrapMSW>
   );
 }

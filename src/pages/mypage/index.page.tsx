@@ -2,7 +2,7 @@ import { ReactElement } from "react";
 
 import { dehydrate, QueryClient } from "@tanstack/react-query";
 
-import { getBookmarkFestival, getBookmarkReview } from "@/apis/api";
+import { getBookmarkFestival, getMyPageReview } from "@/apis/api";
 import HeaderLayout from "@/components/Layout/HeaderLayout";
 import { BOOKMARK_KEYS } from "@/constants/queryKey";
 
@@ -23,7 +23,7 @@ export const getServerSideProps = async () => {
       }),
       queryClient.prefetchQuery({
         queryKey: BOOKMARK_KEYS.reviews(),
-        queryFn: () => getBookmarkReview(),
+        queryFn: () => getMyPageReview(),
       }),
     ]);
 
