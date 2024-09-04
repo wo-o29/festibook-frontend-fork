@@ -14,3 +14,21 @@ export interface GuideBookType {
   matchCount: number;
   data: GuideBookDataListType[];
 }
+
+export interface BookmarkFestivalType {
+  id: number;
+  title: string;
+  region: string;
+  startDate: string;
+  endDate: string;
+  imageUrl: string;
+  isHolding: boolean;
+  isBookmarked: boolean;
+}
+
+export interface BookmarkReviewType {
+  id: number;
+  review: string;
+  title: string;
+  reviewDate: string;
+}

@@ -1,36 +1,21 @@
+import { BookmarkReviewType } from "@/types";
+
 import ReviewItem from "./ReviewItem";
 import * as S from "./styled";
 
-const data = [
-  {
-    id: 1,
-    review: "토마토 축제 재밌어요",
-    title: "토마토 축제",
-    reviewDate: "2021-08-01",
-  },
-  {
-    id: 1,
-    review: "토마토 축제 재밌어요",
-    title: "토마토 축제",
-    reviewDate: "2021-08-01",
-  },
-  {
-    id: 1,
-    review: "토마토 축제 재밌어요",
-    title: "토마토 축제",
-    reviewDate: "2021-08-01",
-  },
-];
+interface ReviewListProps {
+  reviewData: BookmarkReviewType[];
+}
 
-function ReviewList() {
+function ReviewList({ reviewData }: ReviewListProps) {
   return (
     <S.List>
-      {data.map((item) => (
+      {reviewData?.map((review) => (
         <ReviewItem
-          key={item.id}
-          review={item.review}
-          title={item.title}
-          reviewDate={item.reviewDate}
+          key={review.id}
+          review={review.review}
+          title={review.title}
+          reviewDate={review.reviewDate}
         />
       ))}
     </S.List>

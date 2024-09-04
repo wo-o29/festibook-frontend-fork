@@ -136,6 +136,13 @@ const reset = css`
     text-decoration: none;
     color: #000;
   }
+
+  button {
+    background-color: transparent;
+    border: none;
+    outline: none;
+    cursor: pointer;
+  }
 `;
 
 export default reset;

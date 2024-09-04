@@ -41,9 +41,16 @@
     "eslint-plugin-import": "^2.29.1",
     "eslint-plugin-prettier": "^5.2.1",
     "eslint-plugin-storybook": "^0.8.0",
+    "graphql": "^16.9.0",
+    "msw": "^2.4.1",
     "prettier": "3.3.3",
     "sb": "^8.2.6",
     "storybook": "^8.3.0-alpha.3",
     "typescript": "^5"
+  },
+  "msw": {
+    "workerDirectory": [
+      "public"
+    ]
   }
 }
