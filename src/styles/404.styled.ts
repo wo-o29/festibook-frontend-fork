@@ -8,7 +8,7 @@ import { MOBILE_MEDIA_QUERY } from "./const";
 
 export const FireworksContainer = styled(Fireworks)`
   width: 100vw;
-  height: 100vh;
+  height: calc(100vh - 5px);
 `;
 
 export const Container = styled.div`
