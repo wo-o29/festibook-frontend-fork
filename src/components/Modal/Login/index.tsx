@@ -2,10 +2,40 @@ import Image from "next/image";
 
 import React from "react";
 
-import NaverLoginButton from "./Naver";
+import { oauth2Login } from "@/apis/api";
+import { oauth2Type } from "@/types";
+
 import * as S from "./styled";
 import { ModalProps } from "..";
 import Modal from "..";
+
+interface LoginPlatformType {
+  id: number;
+  name: oauth2Type;
+  icon: string;
+  description: string;
+}
+
+const LOGIN_PLATFORM: LoginPlatformType[] = [
+  {
+    id: 1,
+    name: "google",
+    icon: "/icons/google.svg",
+    description: "구글 로그인",
+  },
+  {
+    id: 2,
+    name: "kakao",
+    icon: "/icons/kakao.svg",
+    description: "카카오 로그인",
+  },
+  {
+    id: 3,
+    name: "naver",
+    icon: "/icons/naver.svg",
+    description: "네이버 로그인",
+  },
+];
 
 function LoginModal({ isOpen, onClose }: Omit<ModalProps, "children">) {
   return (
@@ -19,23 +49,20 @@ function LoginModal({ isOpen, onClose }: Omit<ModalProps, "children">) {
         />
         <S.Title>SNS 계정으로 간편하게 시작하기</S.Title>
         <S.SocialBox>
-          <S.SocialButton type="button">
-            <Image
-              src="/icons/google.svg"
-              width={60}
-              height={60}
-              alt="구글 로그인"
-            />
-          </S.SocialButton>
-          <S.SocialButton type="button">
-            <Image
-              src="/icons/kakao.svg"
-              width={60}
-              height={60}
-              alt="카카오 로그인"
-            />
-          </S.SocialButton>
-          <NaverLoginButton />
+          {LOGIN_PLATFORM.map((platform) => (
+            <S.SocialButton
+              type="button"
+              key={platform.id}
+              onClick={() => oauth2Login(platform.name)}
+            >
+              <Image
+                src={platform.icon}
+                width={60}
+                height={60}
+                alt={platform.description}
+              />
+            </S.SocialButton>
+          ))}
         </S.SocialBox>
       </S.Box>
     </Modal>

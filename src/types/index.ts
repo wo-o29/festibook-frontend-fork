@@ -14,3 +14,5 @@ export interface GuideBookType {
   matchCount: number;
   data: GuideBookDataListType[];
 }
+
+export type oauth2Type = "naver" | "kakao" | "google";

@@ -1,7 +1,7 @@
 import axios, { AxiosInstance } from "axios";
 
 export const instance = axios.create({
-  baseURL: "baseURL 추가 예정",
+  baseURL: "http://localhost:8080",
 });
 
 export const setInstance = (baseUrl: string): AxiosInstance => {
