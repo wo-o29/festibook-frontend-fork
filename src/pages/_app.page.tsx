@@ -39,12 +39,9 @@ export default function App({ Component, pageProps }: AppPropsWithLayout) {
     <QueryClientProvider client={queryClient}>
       <OverlayProvider>
         <Global styles={reset} />
-        <Component {...pageProps} />
+        <ReactQueryDevtools initialIsOpen={false} />
+        {getLayout(<Component {...pageProps} />)}
       </OverlayProvider>
-      <Global styles={reset} />
-      <Component {...pageProps} />
-      <ReactQueryDevtools initialIsOpen={false} />
-      {getLayout(<Component {...pageProps} />)}
     </QueryClientProvider>
   );
 }
