@@ -1,13 +1,10 @@
-import { BookmarkReviewType } from "@/types";
+import { useGetMyPageReview } from "@/hooks/useGetMyPageReview";
 
 import ReviewItem from "./ReviewItem";
 import * as S from "./styled";
 
-interface ReviewListProps {
-  reviewData: BookmarkReviewType[];
-}
-
-function ReviewList({ reviewData }: ReviewListProps) {
+function ReviewList() {
+  const { data: reviewData } = useGetMyPageReview();
   return (
     <S.List>
       {reviewData?.map((review) => (
