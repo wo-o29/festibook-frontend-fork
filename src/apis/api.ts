@@ -13,6 +13,6 @@ export const getGuideBookData = async (
   return response.data;
 };
 
-export const oauth2Login = (platform: oauth2Type) => {
-  const response = instance(`/oauth2/authorization/${platform}`);
+export const oauth2Login = async (platform: oauth2Type) => {
+  const response = instance.get(`/oauth2/authorization/${platform}`);
 };
