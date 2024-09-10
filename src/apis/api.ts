@@ -22,8 +22,8 @@ export const getGuideBookData = async (
 export const getBookmarkFestival = async (): Promise<
   BookmarkFestivalType[]
 > => {
-  const response = await axios.get("/bookmark/festival");
-
+  const response = await instance.get("/api/favorite");
+  console.log(response);
   return response.data;
 };
 
