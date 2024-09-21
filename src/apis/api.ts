@@ -1,6 +1,6 @@
-import { GuideBookType, oauth2Type } from "@/types";
+import { GuideBookType } from "@/types";
 
-import { setInstance, instance } from "./axios";
+import { setInstance } from "./axios";
 
 export const getGuideBookData = async (
   pageParam: number,
