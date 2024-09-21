@@ -2,7 +2,6 @@ import Image from "next/image";
 
 import React from "react";
 
-import { oauth2Login } from "@/apis/api";
 import { oauth2Type } from "@/types";
 
 import * as S from "./styled";
@@ -50,10 +49,9 @@ function LoginModal({ isOpen, onClose }: Omit<ModalProps, "children">) {
         <S.Title>SNS 계정으로 간편하게 시작하기</S.Title>
         <S.SocialBox>
           {LOGIN_PLATFORM.map((platform) => (
-            <S.SocialButton
-              type="button"
+            <S.SocialNavLink
               key={platform.id}
-              onClick={() => oauth2Login(platform.name)}
+              href={`http://localhost:8080/oauth2/authorization/${platform.name}`}
             >
               <Image
                 src={platform.icon}
@@ -61,7 +59,7 @@ function LoginModal({ isOpen, onClose }: Omit<ModalProps, "children">) {
                 height={60}
                 alt={platform.description}
               />
-            </S.SocialButton>
+            </S.SocialNavLink>
           ))}
         </S.SocialBox>
       </S.Box>
