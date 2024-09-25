@@ -7,3 +7,8 @@ export const GUIDE_BOOK_KEYS = {
   all: ["guide-book"] as const,
   lists: () => [...GUIDE_BOOK_KEYS.all, "list"] as const,
 };
+
+export const userInfoKey = {
+  all: ["user"] as const,
+  info: () => [...userInfoKey.all, "info"] as const,
+};

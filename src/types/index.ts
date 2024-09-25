@@ -16,3 +16,9 @@ export interface GuideBookType {
 }
 
 export type oauth2Type = "naver" | "kakao" | "google";
+
+export interface UserInfoType {
+  id: number;
+  nickname: string;
+  platform: oauth2Type;
+}
