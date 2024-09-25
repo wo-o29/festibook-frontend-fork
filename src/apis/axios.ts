@@ -76,7 +76,7 @@ instance.interceptors.response.use(
       return instance(originalConfig);
     } catch (error) {
       setToast("error", "로그인 세션이 만료되었습니다.");
-      // Router.push("/123");
+      Router.push("/");
       return Promise.reject(error);
     }
   },
