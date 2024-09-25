@@ -17,7 +17,7 @@ export const getServerSideProps = async (
     if (accessToken && refreshToken) {
       context.res.setHeader("Set-Cookie", [ACCESS_TOKEN, REFRESH_TOKEN]);
     }
-
+    throw new Error("에러 발생");
     // 메인 페이지로 리다이렉트
     return {
       redirect: {

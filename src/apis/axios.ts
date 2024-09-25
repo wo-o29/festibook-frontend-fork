@@ -25,7 +25,7 @@ export const setContext = (_context: GetServerSidePropsContext) => {
   context = _context;
 };
 
-// 헤더 토큰 추가할 때 사용 등등...
+// // 헤더 토큰 추가할 때 사용 등등...
 instance.interceptors.request.use(async (config) => {
   try {
     // sever side
@@ -56,28 +56,33 @@ instance.interceptors.response.use(
 
     if (error.response?.status === 401 && !originalConfig._retry) {
       originalConfig._retry = true;
-    }
 
-    try {
-      // 기존 리프레쉬 토큰 가져오기
-      const response = await nextInstance.get("/api/cookies");
-      const { refreshToken } = response.data;
+      try {
+        // 기존 리프레쉬 토큰 가져오기
+        const response = await nextInstance.get("/api/cookies");
+        const { refreshToken } = response.data;
 
-      // 액세스 토큰 재발급
-      const accessToken = await ReissueAccessToken(refreshToken);
+        // 액세스 토큰 재발급
+        const accessToken = await ReissueAccessToken(refreshToken);
 
-      // 새로 발급받은 토큰들 쿠키에 저장
-      await nextInstance.post("/api/setCookies", {
-        accessToken,
-        refreshToken,
-      });
+        // 새로 발급받은 토큰들 쿠키에 저장
+        await nextInstance.post("/api/setCookies", {
+          accessToken,
+          refreshToken,
+        });
 
-      // 기존 요청 재시동
-      return instance(originalConfig);
-    } catch (error) {
-      setToast("error", "로그인 세션이 만료되었습니다.");
-      Router.push("/");
-      return Promise.reject(error);
+        instance.defaults.headers.common["Authorization"] =
+          `Bearer ${accessToken}`;
+
+        originalConfig.headers["Authorization"] = `Bearer ${accessToken}`;
+
+        // 기존 요청 재시동
+        return instance(originalConfig);
+      } catch (error) {
+        setToast("error", "로그인 세션이 만료되었습니다.");
+        Router.push("/");
+        return Promise.reject(error);
+      }
     }
   },
 );

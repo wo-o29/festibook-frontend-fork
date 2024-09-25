@@ -13,7 +13,7 @@ export const getGuideBookData = async (
   return response.data;
 };
 
-export const getUserInfo = async (): Promise<UserInfoType> => {
+export const getUserInfo = async (): Promise<UserInfoType | undefined> => {
   const response = await instance.get("/api/users");
   return response.data;
 };
