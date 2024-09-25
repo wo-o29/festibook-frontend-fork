@@ -1,4 +1,3 @@
-import Link from "next/link";
 import Router from "next/router";
 import { GetServerSidePropsContext } from "next/types";
 
@@ -75,7 +74,6 @@ export default function Home() {
       >
         로그인 버튼
       </button>
-      <Link href="/">초기 설정 ㅇ_ㅇ</Link>
     </>
   );
 }
