@@ -3,8 +3,6 @@ import { GetServerSidePropsContext } from "next/types";
 
 import axios, { AxiosError, AxiosInstance } from "axios";
 
-import setToast from "@/utils/setToast";
-
 import { ReissueAccessToken } from "./api";
 
 export const instance = axios.create({
@@ -79,7 +77,6 @@ instance.interceptors.response.use(
         // 기존 요청 재시동
         return instance(originalConfig);
       } catch (error) {
-        setToast("error", "로그인 세션이 만료되었습니다.");
         Router.push("/");
         return Promise.reject(error);
       }
