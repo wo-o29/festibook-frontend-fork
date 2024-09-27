@@ -19,11 +19,11 @@ export const getServerSideProps = async () => {
     await Promise.all([
       queryClient.prefetchQuery({
         queryKey: BOOKMARK_KEYS.festival(),
-        queryFn: () => getBookmarkFestival(),
+        queryFn: getBookmarkFestival,
       }),
       queryClient.prefetchQuery({
         queryKey: BOOKMARK_KEYS.reviews(),
-        queryFn: () => getMyPageReview(),
+        queryFn: getMyPageReview,
       }),
     ]);
 

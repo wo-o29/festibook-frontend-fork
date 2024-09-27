@@ -20,13 +20,3 @@ export const Grid = styled.div`
     grid-template-columns: repeat(1, 1fr);
   }
 `;
-
-export const Empty = styled.div`
-  width: 100%;
-  height: 13rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1.5rem;
-  font-weight: 800;
-`;

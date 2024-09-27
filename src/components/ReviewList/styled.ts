@@ -6,3 +6,13 @@ export const List = styled.ul`
   flex-direction: column;
   gap: 1.25rem;
 `;
+
+export const Empty = styled.div`
+  width: 100%;
+  height: 8rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.4rem;
+  font-weight: 800;
+`;

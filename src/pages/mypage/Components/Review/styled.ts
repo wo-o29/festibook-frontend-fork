@@ -1,11 +1,17 @@
 import styled from "@emotion/styled";
 
+import { MOBILE_MEDIA_QUERY } from "@/styles/const";
+
 export const Section = styled.section`
   border-radius: 16px;
   border: 1px solid #8c8c8c;
   height: 15rem;
-  flex-grow: 1.5;
+  width: 55%;
   padding: 0.75rem 1rem 0 1rem;
+
+  @media ${MOBILE_MEDIA_QUERY} {
+    width: 100%;
+  }
 `;
 
 export const Header = styled.div`

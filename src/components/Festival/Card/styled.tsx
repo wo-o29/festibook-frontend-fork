@@ -12,22 +12,6 @@ export const ImageBox = styled.div`
   position: relative;
 `;
 
-export const Label = styled.p<{ isHolding: boolean }>`
-  position: absolute;
-  top: 3%;
-  left: 3%;
-  border-radius: 0.25rem;
-  font-size: 0.75rem;
-  padding: 0.25rem 0.5rem;
-
-  ${({ isHolding }) =>
-    isHolding
-      ? ` background: #ff4e4e;
-      color: #fff;`
-      : `background: gray;
-      color: #fff;`}
-`;
-
 export const Box = styled.div`
   display: flex;
   justify-content: space-between;
