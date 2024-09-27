@@ -15,19 +15,10 @@ export interface GuideBookType {
   data: GuideBookDataListType[];
 }
 
-export interface BookmarkFestivalType {
-  id: number;
-  title: string;
-  region: string;
-  startDate: string;
-  endDate: string;
-  imageUrl: string;
-  isHolding: boolean;
-}
+export type oauth2Type = "naver" | "kakao" | "google";
 
-export interface BookmarkReviewType {
+export interface UserInfoType {
   id: number;
-  review: string;
-  title: string;
-  reviewDate: string;
+  nickname: string;
+  platform: oauth2Type;
 }

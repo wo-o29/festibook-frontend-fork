@@ -140,8 +140,9 @@ const reset = css`
   button {
     background-color: transparent;
     border: none;
-    outline: none;
     cursor: pointer;
+    outline: none;
+    padding: 0;
   }
 `;
 

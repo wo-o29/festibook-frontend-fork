@@ -41,8 +41,8 @@ export const EarthImage = styled(Image)`
   width: 20.5rem;
 
   @media ${MOBILE_MEDIA_QUERY} {
-    left: 37.7%;
-    top: -0.5%;
+    left: 37.4%;
+    top: 0%;
     width: 11.5625rem;
   }
 `;

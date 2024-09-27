@@ -6,6 +6,7 @@ import { ReactElement, ReactNode, useState } from "react";
 import { Global } from "@emotion/react";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
+import { OverlayProvider } from "overlay-kit";
 
 import WrapMSW from "@/mocks/WrapMSW";
 import reset from "@/styles/reset";
@@ -24,7 +25,7 @@ export default function App({ Component, pageProps }: AppPropsWithLayout) {
       new QueryClient({
         defaultOptions: {
           queries: {
-            throwOnError: true, // 에러 발생 시 컴포넌트에 에러를 전파
+            retry: 0, // 재시도 횟수
           },
         },
       }),
@@ -33,12 +34,12 @@ export default function App({ Component, pageProps }: AppPropsWithLayout) {
   const getLayout = Component.getLayout ?? ((page) => page);
 
   return (
-    <WrapMSW>
-      <QueryClientProvider client={queryClient}>
+    <QueryClientProvider client={queryClient}>
+      <OverlayProvider>
         <Global styles={reset} />
         <ReactQueryDevtools initialIsOpen={false} />
         {getLayout(<Component {...pageProps} />)}
-      </QueryClientProvider>
-    </WrapMSW>
+      </OverlayProvider>
+    </QueryClientProvider>
   );
 }
