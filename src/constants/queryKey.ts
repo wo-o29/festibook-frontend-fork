@@ -12,3 +12,9 @@ export const userInfoKey = {
   all: ["user"] as const,
   info: () => [...userInfoKey.all, "info"] as const,
 };
+
+export const BOOKMARK_KEYS = {
+  all: ["bookmark"] as const,
+  reviews: () => [...BOOKMARK_KEYS.all, "review"] as const,
+  festival: () => [...BOOKMARK_KEYS.all, "festival"] as const,
+};

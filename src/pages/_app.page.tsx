@@ -26,6 +26,7 @@ export default function App({ Component, pageProps }: AppPropsWithLayout) {
         defaultOptions: {
           queries: {
             retry: 0, // 재시도 횟수
+            throwOnError: true, // 에러 발생 시 컴포넌트에 에러를 전파
           },
         },
       }),
@@ -34,12 +35,14 @@ export default function App({ Component, pageProps }: AppPropsWithLayout) {
   const getLayout = Component.getLayout ?? ((page) => page);
 
   return (
-    <QueryClientProvider client={queryClient}>
-      <OverlayProvider>
-        <Global styles={reset} />
-        <ReactQueryDevtools initialIsOpen={false} />
-        {getLayout(<Component {...pageProps} />)}
-      </OverlayProvider>
-    </QueryClientProvider>
+    <WrapMSW>
+      <QueryClientProvider client={queryClient}>
+        <OverlayProvider>
+          <Global styles={reset} />
+          <ReactQueryDevtools initialIsOpen={false} />
+          {getLayout(<Component {...pageProps} />)}
+        </OverlayProvider>
+      </QueryClientProvider>
+    </WrapMSW>
   );
 }
