@@ -9,7 +9,7 @@ function FestivalGrid() {
   if (festivalData.length > 0) {
     return (
       <S.Grid>
-        {festivalData.map((festival) => {
+        {festivalData.slice(0, 4).map((festival) => {
           const { eventId, title, address1, startDate, endDate, thumbnailUrl } =
             festival;
 

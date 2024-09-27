@@ -36,11 +36,24 @@ const LOGIN_PLATFORM: LoginPlatformType[] = [
   },
 ];
 
-function LoginModal({ isOpen, onClose }: Omit<ModalProps, "children">) {
+function LoginModal({
+  isOpen,
+  onClose,
+}: Omit<
+  ModalProps,
+  "children" | "$width" | "$height" | "$mobileWidth" | "$mobileHeight"
+>) {
   return (
-    <Modal isOpen={isOpen} onClose={onClose}>
+    <Modal
+      isOpen={isOpen}
+      onClose={onClose}
+      $width={35}
+      $height={30}
+      $mobileWidth={20}
+      $mobileHeight={21}
+    >
       <S.Box>
-        <Image
+        <S.LogoImage
           src="/icons/logo.svg"
           width={330}
           height={150}
@@ -53,7 +66,7 @@ function LoginModal({ isOpen, onClose }: Omit<ModalProps, "children">) {
               key={platform.id}
               href={`http://localhost:8080/oauth2/authorization/${platform.name}`}
             >
-              <Image
+              <S.SocialLogo
                 src={platform.icon}
                 width={60}
                 height={60}

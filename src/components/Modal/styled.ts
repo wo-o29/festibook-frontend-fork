@@ -1,6 +1,8 @@
 import { keyframes } from "@emotion/react";
 import styled from "@emotion/styled";
 
+import { MOBILE_MEDIA_QUERY } from "@/styles/const";
+
 const openEffect = keyframes`
  0%{
     opacity: 0;
@@ -29,17 +31,29 @@ export const Container = styled.div<{ isOpen: boolean }>`
   animation: ${({ isOpen }) => (isOpen ? openEffect : closeEffect)} 0.25s ease;
 `;
 
-export const Wrap = styled.div`
+interface WrapProps {
+  $width: number;
+  $height: number;
+  $mobileWidth: number;
+  $mobileHeight: number;
+}
+
+export const Wrap = styled.div<WrapProps>`
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   background-color: #fff;
   border-radius: 12px;
-  width: 34.375rem;
-  height: 29.6875rem;
+  ${({ $width, $height }) => `width: ${$width}rem; height: ${$height}rem;`}
   padding: 1.5rem 1.25rem;
   border: 1px solid #efefef;
+
+  @media ${MOBILE_MEDIA_QUERY} {
+    padding: 1.5rem 0.75rem;
+    ${({ $mobileWidth, $mobileHeight }) =>
+      `width: ${$mobileWidth}rem; height: ${$mobileHeight}rem;`}
+  }
 `;
 
 export const ButtonBox = styled.div`
