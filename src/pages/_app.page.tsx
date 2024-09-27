@@ -6,6 +6,7 @@ import { ReactElement, ReactNode, useState } from "react";
 import { Global } from "@emotion/react";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
+import { OverlayProvider } from "overlay-kit";
 
 import reset from "@/styles/reset";
 
@@ -24,9 +25,6 @@ export default function App({ Component, pageProps }: AppPropsWithLayout) {
         defaultOptions: {
           queries: {
             retry: 0, // 재시도 횟수
-            staleTime: 1 * 60 * 1000, // 1분
-            gcTime: 5 * 60 * 1000, // 5분
-            throwOnError: true, // 에러 발생 시 컴포넌트에 에러를 전파
           },
         },
       }),
@@ -36,10 +34,11 @@ export default function App({ Component, pageProps }: AppPropsWithLayout) {
 
   return (
     <QueryClientProvider client={queryClient}>
-      <Global styles={reset} />
-      <Component {...pageProps} />
-      <ReactQueryDevtools initialIsOpen={false} />
-      {getLayout(<Component {...pageProps} />)}
+      <OverlayProvider>
+        <Global styles={reset} />
+        <ReactQueryDevtools initialIsOpen={false} />
+        {getLayout(<Component {...pageProps} />)}
+      </OverlayProvider>
     </QueryClientProvider>
   );
 }
