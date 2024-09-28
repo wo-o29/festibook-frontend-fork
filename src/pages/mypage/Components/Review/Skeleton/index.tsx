@@ -1,13 +1,17 @@
 import * as S from "./styled";
 
-function BookmarkReviewSkeleton() {
+interface ReviewSkeletonProps {
+  count: number;
+}
+
+function ReviewSkeleton({ count }: ReviewSkeletonProps) {
   return (
     <S.ListSkeleton>
-      <S.ItemSkeleton />
-      <S.ItemSkeleton />
-      <S.ItemSkeleton />
+      {Array.from({ length: count }, (_, index) => (
+        <S.ItemSkeleton key={index} />
+      ))}
     </S.ListSkeleton>
   );
 }
 
-export default BookmarkReviewSkeleton;
+export default ReviewSkeleton;

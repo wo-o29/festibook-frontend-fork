@@ -11,10 +11,13 @@ function Bookmark() {
   return (
     <S.Section>
       <S.Header>
-        <SectionTitle title="축제 즐겨찾기" />
-        <Tooltip text="축제 데이터가 사라질 경우 목록에 보이지 않을 수 있습니다." />
+        <S.HeaderBox>
+          <SectionTitle title="축제 즐겨찾기" />
+          <Tooltip text="축제 데이터가 사라질 경우 목록에 보이지 않을 수 있습니다." />
+        </S.HeaderBox>
+        <S.MoreLink href="mypage/bookmark">더보기</S.MoreLink>
       </S.Header>
-      <Suspense fallback={<SkeletonGrid />}>
+      <Suspense fallback={<SkeletonGrid count={4} />}>
         <FestivalGrid />
       </Suspense>
     </S.Section>

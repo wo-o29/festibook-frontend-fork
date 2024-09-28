@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 import styled from "@emotion/styled";
 
 import { MOBILE_MEDIA_QUERY } from "@/styles/const";
@@ -17,5 +19,16 @@ export const Section = styled.section`
 export const Header = styled.div`
   display: flex;
   align-items: center;
+  justify-content: space-between;
+`;
+
+export const HeaderBox = styled.div`
+  display: flex;
+  align-items: center;
   gap: 0.25rem;
+`;
+
+export const MoreLink = styled(Link)`
+  font-size: 0.95rem;
+  color: #696969;
 `;

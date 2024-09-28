@@ -1,12 +1,16 @@
 import * as S from "./styled";
 import SkeletonFestivalCard from "../Card";
 
-function SkeletonGrid() {
+interface SkeletonGridProps {
+  count: number;
+}
+
+function SkeletonGrid({ count }: SkeletonGridProps) {
   return (
     <S.Grid>
-      {Array.from({ length: 4 }, (_, i) => ({ id: i })).map((value) => {
-        return <SkeletonFestivalCard key={value.id} />;
-      })}
+      {Array.from({ length: count }, (_, index) => (
+        <SkeletonFestivalCard key={index} />
+      ))}
     </S.Grid>
   );
 }
