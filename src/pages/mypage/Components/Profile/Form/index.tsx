@@ -48,7 +48,7 @@ function Form() {
       return;
     }
 
-    const payload = { ...userInfo, nickname: formData.nickname };
+    const payload = { nickname: formData.nickname };
     editNicknameMutate(payload, {
       onSuccess: () => {
         setToast("success", "닉네임이 변경되었습니다.");

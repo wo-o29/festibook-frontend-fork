@@ -7,7 +7,7 @@ import { UserInfoType } from "@/types";
 export const useEditNickname = () => {
   const queryClient = useQueryClient();
   const { mutate } = useMutation({
-    mutationFn: (data: UserInfoType) => editNickname(data),
+    mutationFn: (data: Pick<UserInfoType, "nickname">) => editNickname(data),
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: userInfoKey.info() });
     },

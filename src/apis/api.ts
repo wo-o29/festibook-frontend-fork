@@ -43,9 +43,9 @@ export const getMyPageReview = async (): Promise<BookmarkReviewType[]> => {
 };
 
 export const editNickname = async (
-  data: UserInfoType,
+  data: Pick<UserInfoType, "nickname">,
 ): Promise<UserInfoType> => {
-  const response = await instance.put("/api/users", data);
+  const response = await instance.patch("/api/users", data);
   return response.data;
 };
 
