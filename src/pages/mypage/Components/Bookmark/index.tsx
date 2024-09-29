@@ -2,7 +2,7 @@ import { Suspense } from "react";
 
 import FestivalGrid from "@/components/Festival/Grid";
 
-import SkeletonGrid from "./Skeleton/Grid";
+import SkeletonGrid from "./Skeleton/SkeletonGrid";
 import * as S from "./styled";
 import SectionTitle from "../SectionTitle";
 import Tooltip from "../Tooltip";
