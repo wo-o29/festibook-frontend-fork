@@ -6,11 +6,11 @@ import { getBookmarkFestival, getMyPageReview } from "@/apis/api";
 import HeaderLayout from "@/components/Layout/HeaderLayout";
 import { BOOKMARK_KEYS } from "@/constants/queryKey";
 
-import Bookmark from "./components/Bookmark/index";
-import Planner from "./components/Planner/index";
-import Profile from "./components/Profile/index";
-import MyPageReview from "./components/Review/index";
 import * as S from "./styled";
+import Bookmark from "../../pages/mypage/components/Bookmark";
+import Planner from "../../pages/mypage/components/Planner";
+import Profile from "../../pages/mypage/components/Profile";
+import MyPageReview from "../../pages/mypage/components/Review";
 
 export const getServerSideProps = async () => {
   const queryClient = new QueryClient();
