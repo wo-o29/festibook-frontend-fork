@@ -5,11 +5,11 @@ import { dehydrate, QueryClient } from "@tanstack/react-query";
 import { getMyPageReview } from "@/apis/api";
 import BackButton from "@/components/Button/BackButton";
 import HeaderLayout from "@/components/Layout/HeaderLayout";
+import ReviewSkeleton from "@/components/Review/Skeleton";
 import ReviewList from "@/components/ReviewList";
 import { BOOKMARK_KEYS } from "@/constants/queryKey";
 
 import * as S from "./styled";
-import ReviewSkeleton from "../components/Review/Skeleton";
 
 export const getServerSideProps = async () => {
   const queryClient = new QueryClient();

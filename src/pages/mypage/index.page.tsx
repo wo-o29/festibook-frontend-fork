@@ -3,14 +3,14 @@ import { ReactElement } from "react";
 import { dehydrate, QueryClient } from "@tanstack/react-query";
 
 import { getBookmarkFestival, getMyPageReview } from "@/apis/api";
+import Bookmark from "@/components/Bookmark";
 import HeaderLayout from "@/components/Layout/HeaderLayout";
+import Planner from "@/components/Planner";
+import MyPageReview from "@/components/Review";
 import { BOOKMARK_KEYS } from "@/constants/queryKey";
 
+import Profile from "./components/Profile";
 import * as S from "./styled";
-import Bookmark from "../../pages/mypage/components/Bookmark";
-import Planner from "../../pages/mypage/components/Planner";
-import Profile from "../../pages/mypage/components/Profile";
-import MyPageReview from "../../pages/mypage/components/Review";
 
 export const getServerSideProps = async () => {
   const queryClient = new QueryClient();

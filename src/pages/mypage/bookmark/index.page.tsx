@@ -3,13 +3,13 @@ import { ReactElement, Suspense } from "react";
 import { dehydrate, QueryClient } from "@tanstack/react-query";
 
 import { getBookmarkFestival } from "@/apis/api";
+import SkeletonGrid from "@/components/Bookmark/Skeleton/SkeletonGrid";
 import BackButton from "@/components/Button/BackButton";
 import FestivalGrid from "@/components/Festival/Grid";
 import HeaderLayout from "@/components/Layout/HeaderLayout";
 import { BOOKMARK_KEYS } from "@/constants/queryKey";
 
 import * as S from "./styled";
-import SkeletonGrid from "../../mypage/components/Bookmark/Skeleton/SkeletonGrid";
 
 export const getServerSideProps = async () => {
   const queryClient = new QueryClient();

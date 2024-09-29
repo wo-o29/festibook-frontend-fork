@@ -4,8 +4,8 @@ import FestivalGrid from "@/components/Festival/Grid";
 
 import SkeletonGrid from "./Skeleton/SkeletonGrid";
 import * as S from "./styled";
-import SectionTitle from "../SectionTitle";
-import Tooltip from "../Tooltip";
+import SectionTitle from "../../pages/mypage/components/SectionTitle";
+import Tooltip from "../../pages/mypage/components/Tooltip";
 
 function Bookmark() {
   return (
