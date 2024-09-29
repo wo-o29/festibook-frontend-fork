@@ -20,6 +20,7 @@ export const Box = styled.div`
   gap: 0.5rem;
   padding: 0 0 1rem 0.25rem;
   border-bottom: 2px solid #000;
+  margin-bottom: 1.5rem;
 `;
 
 export const Title = styled.h2`
