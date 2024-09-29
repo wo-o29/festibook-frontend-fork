@@ -2,7 +2,7 @@ import { Suspense } from "react";
 
 import ReviewSkeleton from "./Skeleton";
 import * as S from "./styled";
-import ReviewList from "../../../../components/ReviewList";
+import ReviewList from "../ReviewList";
 import SectionTitle from "../SectionTitle";
 import Tooltip from "../Tooltip";
 
