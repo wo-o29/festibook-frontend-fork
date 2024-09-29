@@ -6,7 +6,6 @@ import axios, { AxiosError, AxiosInstance } from "axios";
 import { ReissueAccessToken } from "./api";
 
 export const instance = axios.create({
-  // baseURL: "http://localhost:8080",
   baseURL: process.env.NEXT_PUBLIC_SERVER_BASE_URL,
 });
 
@@ -16,7 +15,10 @@ export const setInstance = (baseUrl: string): AxiosInstance => {
 };
 
 export const nextInstance = axios.create({
-  baseURL: "http://localhost:3000",
+  baseURL:
+    process.env.NODE_ENV === "production"
+      ? process.env.NEXT_PUBLIC_DOMAIN
+      : "http://localhost:3000",
 });
 
 let context: GetServerSidePropsContext | null = null;
