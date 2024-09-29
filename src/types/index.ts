@@ -22,3 +22,22 @@ export interface UserInfoType {
   nickname: string;
   platform: oauth2Type;
 }
+
+export interface BookmarkFestivalType {
+  eventId: number;
+  title: string;
+  address1: string;
+  startDate: string;
+  endDate: string;
+  thumbnailUrl: string;
+}
+
+export interface BookmarkReviewType {
+  id: number;
+  userId: number;
+  nickname: string;
+  content: string;
+  eventId: number;
+  eventName: string;
+  createdAt: string;
+}

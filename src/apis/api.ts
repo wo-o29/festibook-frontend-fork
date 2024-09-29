@@ -1,4 +1,9 @@
-import { GuideBookType, UserInfoType } from "@/types";
+import {
+  GuideBookType,
+  UserInfoType,
+  BookmarkFestivalType,
+  BookmarkReviewType,
+} from "@/types";
 
 import { setInstance, instance } from "./axios";
 
@@ -13,12 +18,37 @@ export const getGuideBookData = async (
   return response.data;
 };
 
-export const getUserInfo = async (): Promise<UserInfoType | undefined> => {
+export const getUserInfo = async (): Promise<UserInfoType> => {
   const response = await instance.get("/api/users");
   return response.data;
 };
 
-export const ReissueAccessToken = async (refreshToken: string) => {
+export const ReissueAccessToken = async (
+  refreshToken: string,
+): Promise<string> => {
   const response = await instance.post("/api/token/refresh", { refreshToken });
   return response.data;
+};
+
+export const getBookmarkFestival = async (): Promise<
+  BookmarkFestivalType[]
+> => {
+  const response = await instance.get("/api/favorite");
+  return response.data;
+};
+
+export const getMyPageReview = async (): Promise<BookmarkReviewType[]> => {
+  const response = await instance.get("/api/reviews");
+  return response.data;
+};
+
+export const editNickname = async (
+  data: Pick<UserInfoType, "nickname">,
+): Promise<UserInfoType> => {
+  const response = await instance.patch("/api/users", data);
+  return response.data;
+};
+
+export const withdrawUser = async (): Promise<void> => {
+  await instance.delete("/api/users");
 };

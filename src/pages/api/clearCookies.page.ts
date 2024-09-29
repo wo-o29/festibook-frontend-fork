@@ -7,6 +7,7 @@ const handler = (req: NextApiRequest, res: NextApiResponse) => {
       `accessToken=; Path=/; HttpOnly;, SameSite=Strict; Max-Age=0; Secure`,
       `refreshToken=; Path=/; HttpOnly;, SameSite=Strict; Max-Age=0; Secure`,
     ]);
+
     res.status(200).json({ message: "로그아웃이 성공적으로 처리되었습니다" });
   } catch (error) {
     res

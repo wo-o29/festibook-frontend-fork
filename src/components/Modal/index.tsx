@@ -9,13 +9,30 @@ export interface ModalProps {
   children: ReactNode;
   isOpen: boolean;
   onClose: () => void;
+  $width: number;
+  $height: number;
+  $mobileWidth: number;
+  $mobileHeight: number;
 }
 
-function Modal({ children, isOpen, onClose }: ModalProps) {
+function Modal({
+  children,
+  isOpen,
+  onClose,
+  $width,
+  $height,
+  $mobileWidth,
+  $mobileHeight,
+}: ModalProps) {
   return (
     <Portal>
       <S.Container isOpen={isOpen}>
-        <S.Wrap>
+        <S.Wrap
+          $width={$width}
+          $height={$height}
+          $mobileWidth={$mobileWidth}
+          $mobileHeight={$mobileHeight}
+        >
           <S.ButtonBox>
             <S.CloseButton type="button" onClick={onClose}>
               <Image

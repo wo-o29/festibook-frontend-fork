@@ -2,7 +2,7 @@ import Image from "next/image";
 
 import styled from "@emotion/styled";
 
-import { TABLET_MEDIA_QUERY, MOBILE_MEDIA_QUERY } from "@/styles/const";
+import { TABLET_MEDIA_QUERY } from "@/styles/const";
 
 export const Container = styled.main`
   max-width: 120rem;

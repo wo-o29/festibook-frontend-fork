@@ -1,5 +1,3 @@
-import Image from "next/image";
-
 import React from "react";
 
 import { oauth2Type } from "@/types";
@@ -36,11 +34,26 @@ const LOGIN_PLATFORM: LoginPlatformType[] = [
   },
 ];
 
-function LoginModal({ isOpen, onClose }: Omit<ModalProps, "children">) {
+const BASE_URL = process.env.NEXT_PUBLIC_SERVER_BASE_URL;
+
+function LoginModal({
+  isOpen,
+  onClose,
+}: Omit<
+  ModalProps,
+  "children" | "$width" | "$height" | "$mobileWidth" | "$mobileHeight"
+>) {
   return (
-    <Modal isOpen={isOpen} onClose={onClose}>
+    <Modal
+      isOpen={isOpen}
+      onClose={onClose}
+      $width={35}
+      $height={30}
+      $mobileWidth={20}
+      $mobileHeight={21}
+    >
       <S.Box>
-        <Image
+        <S.LogoImage
           src="/icons/logo.svg"
           width={330}
           height={150}
@@ -51,9 +64,9 @@ function LoginModal({ isOpen, onClose }: Omit<ModalProps, "children">) {
           {LOGIN_PLATFORM.map((platform) => (
             <S.SocialNavLink
               key={platform.id}
-              href={`http://localhost:8080/oauth2/authorization/${platform.name}`}
+              href={`${BASE_URL}/oauth2/authorization/${platform.name}`}
             >
-              <Image
+              <S.SocialLogo
                 src={platform.icon}
                 width={60}
                 height={60}
