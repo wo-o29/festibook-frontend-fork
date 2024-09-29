@@ -36,15 +36,15 @@ export default function App({ Component, pageProps }: AppPropsWithLayout) {
   const getLayout = Component.getLayout ?? ((page) => page);
 
   return (
-    <WrapMSW>
-      <QueryClientProvider client={queryClient}>
-        <OverlayProvider>
-          <Global styles={reset} />
-          <ReactQueryDevtools initialIsOpen={false} />
-          <ToastContainer pauseOnFocusLoss={false} />
-          {getLayout(<Component {...pageProps} />)}
-        </OverlayProvider>
-      </QueryClientProvider>
-    </WrapMSW>
+    // <WrapMSW>
+    <QueryClientProvider client={queryClient}>
+      <OverlayProvider>
+        <Global styles={reset} />
+        <ReactQueryDevtools initialIsOpen={false} />
+        <ToastContainer pauseOnFocusLoss={false} />
+        {getLayout(<Component {...pageProps} />)}
+      </OverlayProvider>
+    </QueryClientProvider>
+    // </WrapMSW>
   );
 }
