@@ -5,6 +5,7 @@ import * as S from "./styled";
 
 function ReviewList() {
   const { data: reviewData } = useGetMyPageReview();
+
   return (
     <S.List>
       {reviewData.length > 0 ? (

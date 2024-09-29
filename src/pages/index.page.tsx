@@ -6,6 +6,7 @@ import { overlay } from "overlay-kit";
 
 import { getUserInfo } from "@/apis/api";
 import { nextInstance, setContext } from "@/apis/axios";
+import MetaData from "@/components/MetaData";
 import LoginModal from "@/components/Modal/Login";
 import { userInfoKey } from "@/constants/queryKey";
 import { useGetUserInfo } from "@/hooks/useGetUserInfo";
@@ -49,6 +50,7 @@ export default function Home() {
 
   return (
     <>
+      <MetaData title="국내 모든 축제 정보 한 곳에서 확인하기 | FestiBook" />
       <h1>{JSON.stringify(data) ?? "로그아웃 상태"}</h1>
       <div>
         <button onClick={handleLogoutButtonClick}>로그아웃</button>
