@@ -1,5 +1,6 @@
 import React, { ReactElement, Suspense } from "react";
 
+import BackButton from "@/components/Button/BackButton";
 import HeaderLayout from "@/components/Layout/HeaderLayout";
 import ReviewList from "@/components/ReviewList";
 
@@ -9,7 +10,10 @@ import ReviewSkeleton from "../components/Review/Skeleton";
 function ReviewPage() {
   return (
     <S.Container>
-      <S.Title>작성한 후기 목록</S.Title>
+      <S.Box>
+        <BackButton />
+        <S.Title>작성한 후기 목록</S.Title>
+      </S.Box>
       <Suspense fallback={<ReviewSkeleton count={10} />}>
         <ReviewList />
       </Suspense>

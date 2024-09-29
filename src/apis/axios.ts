@@ -6,7 +6,8 @@ import axios, { AxiosError, AxiosInstance } from "axios";
 import { ReissueAccessToken } from "./api";
 
 export const instance = axios.create({
-  baseURL: "http://localhost:8080",
+  // baseURL: "http://localhost:8080",
+  baseURL: process.env.NEXT_PUBLIC_SERVER_BASE_URL,
 });
 
 export const setInstance = (baseUrl: string): AxiosInstance => {

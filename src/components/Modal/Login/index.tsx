@@ -1,5 +1,3 @@
-import Image from "next/image";
-
 import React from "react";
 
 import { oauth2Type } from "@/types";
@@ -36,6 +34,8 @@ const LOGIN_PLATFORM: LoginPlatformType[] = [
   },
 ];
 
+const BASE_URL = process.env.NEXT_PUBLIC_SERVER_BASE_URL;
+
 function LoginModal({
   isOpen,
   onClose,
@@ -64,7 +64,7 @@ function LoginModal({
           {LOGIN_PLATFORM.map((platform) => (
             <S.SocialNavLink
               key={platform.id}
-              href={`http://localhost:8080/oauth2/authorization/${platform.name}`}
+              href={`${BASE_URL}/oauth2/authorization/${platform.name}`}
             >
               <S.SocialLogo
                 src={platform.icon}
