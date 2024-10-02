@@ -41,3 +41,39 @@ export interface BookmarkReviewType {
   eventName: string;
   createdAt: string;
 }
+
+export interface PlannerFormType {
+  departureLocation: string;
+  arrivalLocation: string;
+  departureDate: string;
+  arrivalDate: string;
+  numberOfPeople: number;
+  travelIntensity: string;
+  totalBudget: number;
+  mealCount: number;
+}
+
+export interface ItineraryType {
+  itinerary: PlannerScheduleType[];
+}
+export interface PlannerScheduleType {
+  date: string;
+  schedule: PlannerScheduleListType[];
+}
+
+export interface PlannerScheduleListType {
+  time: string;
+  duration: string;
+  location: {
+    name: string;
+    administrativeArea: string;
+    detailedAddress: string;
+    longitude: string;
+    latitude: string;
+  };
+  price: {
+    currency: string;
+    price: string;
+  };
+  description: string;
+}

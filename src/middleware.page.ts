@@ -1,6 +1,6 @@
 import { NextResponse, type NextRequest } from "next/server";
 
-const userOnlyUrlRegex = /^(\/mypage)/;
+const userOnlyUrlRegex = /^(\/mypage|\/trip-planner)/;
 
 export function middleware(request: NextRequest) {
   const accessToken = request.cookies.get("accessToken");

@@ -3,6 +3,8 @@ import {
   UserInfoType,
   BookmarkFestivalType,
   BookmarkReviewType,
+  PlannerFormType,
+  ItineraryType,
 } from "@/types";
 
 import { setInstance, instance } from "./axios";
@@ -51,4 +53,23 @@ export const editNickname = async (
 
 export const withdrawUser = async (): Promise<void> => {
   await instance.delete("/api/users");
+};
+
+export const getTripPlan = async (
+  formData: PlannerFormType,
+): Promise<ItineraryType> => {
+  const {
+    departureLocation,
+    arrivalLocation,
+    departureDate,
+    arrivalDate,
+    numberOfPeople,
+    travelIntensity,
+    totalBudget,
+    mealCount,
+  } = formData;
+  const response = await instance.get(
+    `/itineraries?departureLocation=${departureLocation}&arrivalLocation=${arrivalLocation}&departureDate=${departureDate}&arrivalDate=${arrivalDate}&numberOfPeople=${numberOfPeople}&travelIntensity=${travelIntensity}&totalBudget=${totalBudget}&mealCount=${mealCount}`,
+  );
+  return response.data;
 };

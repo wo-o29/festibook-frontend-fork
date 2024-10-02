@@ -1,7 +1,7 @@
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 
 import { editNickname } from "@/apis/api";
-import { userInfoKey } from "@/constants/queryKey";
+import { USER_INFO_KEYS } from "@/constants/queryKey";
 import { UserInfoType } from "@/types";
 
 export const useEditNickname = () => {
@@ -9,7 +9,7 @@ export const useEditNickname = () => {
   const { mutate } = useMutation({
     mutationFn: (data: Pick<UserInfoType, "nickname">) => editNickname(data),
     onSuccess: () => {
-      queryClient.invalidateQueries({ queryKey: userInfoKey.info() });
+      queryClient.invalidateQueries({ queryKey: USER_INFO_KEYS.info() });
     },
   });
 

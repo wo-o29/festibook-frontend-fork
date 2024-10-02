@@ -8,7 +8,7 @@ import { getUserInfo } from "@/apis/api";
 import { nextInstance, setContext } from "@/apis/axios";
 import MetaData from "@/components/MetaData";
 import LoginModal from "@/components/Modal/Login";
-import { userInfoKey } from "@/constants/queryKey";
+import { USER_INFO_KEYS } from "@/constants/queryKey";
 import { useGetUserInfo } from "@/hooks/useGetUserInfo";
 import setToast from "@/utils/setToast";
 
@@ -20,7 +20,7 @@ export const getServerSideProps = async (
   try {
     setContext(context);
     await queryClient.prefetchQuery({
-      queryKey: userInfoKey.info(),
+      queryKey: USER_INFO_KEYS.info(),
       queryFn: getUserInfo,
     });
 

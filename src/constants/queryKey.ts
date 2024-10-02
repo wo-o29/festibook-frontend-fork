@@ -8,9 +8,9 @@ export const GUIDE_BOOK_KEYS = {
   lists: () => [...GUIDE_BOOK_KEYS.all, "list"] as const,
 };
 
-export const userInfoKey = {
+export const USER_INFO_KEYS = {
   all: ["user"] as const,
-  info: () => [...userInfoKey.all, "info"] as const,
+  info: () => [...USER_INFO_KEYS.all, "info"] as const,
 };
 
 export const BOOKMARK_KEYS = {
